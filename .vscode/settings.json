@@ -1,6 +1,7 @@
 {
   "cSpell.words": [
-    "Mercari"
+    "Mercari",
+    "webelement"
   ],
   "python.linting.enabled": true,
   "python.linting.lintOnSave": true,
