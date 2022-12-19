@@ -1,0 +1,13 @@
+{
+  "cSpell.words": [
+    "Mercari"
+  ],
+  "python.linting.enabled": true,
+  "python.linting.lintOnSave": true,
+  "python.linting.maxNumberOfProblems": 100,
+  "python.linting.ignorePatterns": [".vscode/*.py", "**/site-packages/**/*.py"],
+  "python.linting.pylintEnabled": true,
+  "python.formatting.provider": "black",
+  "editor.tabSize": 4,
+  "editor.insertSpaces": true,
+}
