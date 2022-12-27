@@ -15,6 +15,10 @@ from selenium.webdriver.common.by import By
 def read_product(base_url: str, req: Pagination):
     """
     メルカリのデータ取得Flow
+
+    Args:
+        base_url (str): メルカリのBASE_URL
+        req (Pagination): ページとクエリ関連のリクエスト
     """
 
     print("keyword", req.query.keyword)
