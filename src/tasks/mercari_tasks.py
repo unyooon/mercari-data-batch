@@ -9,7 +9,7 @@ from selenium.webdriver.remote.webelement import WebElement
 from infra.client.web_client import WebClient
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.by import By
-from types_class import product
+from types_class.product import Product
 
 
 @task
@@ -32,7 +32,7 @@ def get_page_data(web_client: WebClient) -> WebElement:
 
 
 @task
-def convert_els_to_class(el: WebElement) -> List[product.Product]:
+def convert_els_to_class(el: WebElement) -> List[Product]:
     """
     メルカリのリスト親Web要素からクラスへデータ変換する関数
 
@@ -46,7 +46,7 @@ def convert_els_to_class(el: WebElement) -> List[product.Product]:
 
     els = el.find_elements(By.TAG_NAME, "li")
 
-    products: List[product.Product] = []
+    products: List[Product] = []
 
     for e in els:
         # 必要な要素の取得
@@ -58,7 +58,7 @@ def convert_els_to_class(el: WebElement) -> List[product.Product]:
         detail_url = a_el.get_attribute("href")
         p_id = re.search(r"(m\d{5,11})", detail_url)
 
-        p = product.Product()
+        p = Product()
         p.name = product_el.get_attribute("item-name")
         p.price = int(product_el.get_attribute("price"))
         p.thumbnail = product_el.get_attribute("src")
