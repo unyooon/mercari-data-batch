@@ -28,7 +28,6 @@ def read_product(base_url: str, req: Pagination):
         q = f"{page_query}{search_query}"
         encoded_q = urllib.parse.quote(q, safe="?&=")
 
-        print("open ", f"{base_url}/search?{encoded_q}")
         web_client.open_site(f"{base_url}/search?{encoded_q}")
         el = mercari_tasks.get_page_data(web_client)
         products = mercari_tasks.convert_els_to_class(el)
