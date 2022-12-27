@@ -19,7 +19,6 @@ def read_product(base_url: str, req: Pagination):
         req (Pagination): ページとクエリ関連のリクエスト
     """
 
-    print("keyword", req.query.keyword)
     search_query = f"&keyword={req.query.keyword}"
 
     web_client = WebClient()
