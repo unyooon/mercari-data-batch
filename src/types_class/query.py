@@ -1,6 +1,6 @@
 """Query Module
 
-* メルカリの商品検索時のクエリ型定義モジュール
+* 商品検索時のクエリ型定義モジュール
 
 """
 
@@ -8,10 +8,10 @@
 class Query:
     """Query Class
 
-    メルカリの商品検索時のクエリ型定義
+    商品検索時のクエリ型定義
 
     Attributes:
-        page (int): ページナンバー
+        keyword (str): 検索文字列
         category (int): カテゴリ
         brand (int): ブランド
         price_min (int): 最低価格
@@ -22,7 +22,7 @@ class Query:
 
     def __init__(
         self,
-        page: int,
+        keyword: str = "",
         goods_status: int = 0,
         sales_status: int = 0,
         category: int = 0,
@@ -32,7 +32,7 @@ class Query:
     ) -> None:
         """コンストラクタ
         Args:
-            page (int): ページナンバー
+            keyword (str): 検索文字列
             category (int): カテゴリ
             brand (int): ブランド
             price_min (int): 最低価格
@@ -40,7 +40,7 @@ class Query:
             goods_status (int): 商品の状態
             sales_status (int): 販売状況
         """
-        self.page = page
+        self.keyword = keyword
         self.category = category
         self.brand = brand
         self.goods_status = goods_status
