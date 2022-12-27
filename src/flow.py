@@ -8,8 +8,6 @@ from types_class.pagination import Pagination
 import tasks.mercari_tasks as mercari_tasks
 import urllib.parse
 
-from selenium.webdriver.common.by import By
-
 
 @flow(validate_parameters=False)
 def read_product(base_url: str, req: Pagination):
