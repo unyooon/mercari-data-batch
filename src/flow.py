@@ -3,14 +3,18 @@
 """
 
 from prefect import flow
-from infra.client.web_client import WebClient
-from types_class.pagination import Pagination
-import tasks.mercari_tasks as mercari_tasks
+from typing import List
 import urllib.parse
+
+from infra.db.settings import DbContext
+from infra.client.web_client import WebClient
+from dto.pagination import Pagination
+from dto.product import Product
+import tasks.mercari_tasks as mercari_tasks
 
 
 @flow(validate_parameters=False)
-def read_product(base_url: str, req: Pagination):
+def read_product(db: DbContext, base_url: str, req: Pagination):
     """
     メルカリのデータ取得Flow
 
@@ -28,5 +32,7 @@ def read_product(base_url: str, req: Pagination):
         encoded_q = urllib.parse.quote(q, safe="?&=")
 
         web_client.open_site(f"{base_url}/search?{encoded_q}")
-        el = mercari_tasks.get_page_data(web_client)
-        products = mercari_tasks.convert_els_to_class(el)
+        els = mercari_tasks.get_page_data(web_client)
+        products: List[Product] = []
+        for el in els:
+            products.append(mercari_tasks.convert_els_to_class(el))

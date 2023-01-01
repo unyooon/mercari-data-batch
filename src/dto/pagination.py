@@ -3,7 +3,7 @@
 """
 
 
-from types_class.query import Query
+from dto.query import Query
 
 
 class Pagination:
