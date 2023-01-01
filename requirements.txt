@@ -1,2 +1,7 @@
 prefect==2.3.*
 selenium==4.7.*
+chromedriver-binary==108.0.5359.22.0
+sqlalchemy==1.4.45
+pyodbc==4.0.35
+--no-binary=pyodbc
+python-dotenv==0.21.0
