@@ -6,7 +6,6 @@ from prefect import flow
 from typing import List
 import urllib.parse
 
-from infra.db.settings import DbContext
 from infra.client.web_client import WebClient
 from dto.pagination import Pagination
 from dto.product import Product
@@ -14,7 +13,7 @@ import tasks.mercari_tasks as mercari_tasks
 
 
 @flow(validate_parameters=False)
-def read_product(db: DbContext, base_url: str, req: Pagination):
+def read_product(base_url: str, req: Pagination):
     """
     メルカリのデータ取得Flow
 

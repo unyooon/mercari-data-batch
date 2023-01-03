@@ -4,7 +4,6 @@
 import flow
 from dotenv import load_dotenv
 
-from infra.db.settings import DbContext
 from dto.pagination import Pagination
 from dto.query import Query
 
@@ -18,12 +17,10 @@ def main():
 
     load_dotenv()
 
-    db = DbContext()
-
     q = Query(keyword="ティファニー")
     req = Pagination(q, page_to=2)
 
-    flow.read_product(db, BASE_URL, req)
+    flow.read_product(BASE_URL, req)
 
 
 if __name__ == "__main__":
